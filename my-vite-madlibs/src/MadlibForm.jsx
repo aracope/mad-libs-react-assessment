@@ -40,8 +40,14 @@ function MadlibForm({ prompts, onSubmit }) {
       {/* Render an input for each prompt */}
       {prompts.map(prompt => (
         <div key={prompt}>
-          <label>{prompt}: </label>
-          <input name={prompt} value={formData[prompt]} onChange={handleChange} required />
+          <label htmlFor={prompt}>{prompt}: </label>
+          <input
+            id={prompt}
+            name={prompt}
+            value={formData[prompt]}
+            onChange={handleChange}
+            required
+            minLength={3} />
         </div>
       ))}
       <button type="submit" disabled={!isComplete}>Submit</button>

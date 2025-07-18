@@ -45,8 +45,10 @@ function App() {
       {/* Step 1: Let user choose a story */}
       {!storyKey ? (
         <form>
-          <label>Choose a story: </label>
-          <select value={storyKey} onChange={handleSelect}>
+          <label htmlFor="story-select">Choose a story: </label>
+          <select id="story-select"
+            value={storyKey}
+            onChange={handleSelect}>
             <option value="">-- Choose One --</option>
             {Object.keys(stories).map(key => (
               <option key={key} value={key}>{key}</option>
