@@ -1,12 +1,47 @@
-# React + Vite
+# React Madlibs
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fun and interactive Madlibs game built with React + Vite!  
+Originally adapted from a Python Flask version.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repo  
+```bash
+   git clone https://github.com/your-username/react-madlibs.git
+   cd react-madlibs
+```
+2. Install dependencies
+```bash
+npm install
+```
+3. Start the dev server
+```bash
+npm run dev
+```
+4. Open http://localhost:5173 in your browser to play!
 
-## Expanding the ESLint configuration
+## Built With
+- React
+- Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Features
+Choose between different story templates
+
+Validates input length (≥ 3 characters)
+
+Displays completed story
+
+“Restart” button to play again
+
+## Future Ideas
+Add themes or story images
+
+Track history of stories filled out
+
+Add random story mode
+
+## Acknowledgments
+Inspired by a Flask-based version built earlier in my coding journey.
+
+
