@@ -43,7 +43,7 @@ function App() {
       <h1>Madlibs Game</h1>
 
       {/* Step 1: Let user choose a story */}
-      {!storyKey ? (
+      {storyKey === "" ? (
         <form>
           <label htmlFor="story-select">Choose a story: </label>
           <select id="story-select"
@@ -55,7 +55,7 @@ function App() {
             ))}
           </select>
         </form>
-      ) : !answers ? (
+      ) : answers === null ? (
         // Step 2: Show form to collect user inputs
         <MadlibForm prompts={story.prompts} onSubmit={handleSubmit} />
       ) : (

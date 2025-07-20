@@ -19,40 +19,59 @@ function MadlibForm({ prompts, onSubmit }) {
     prompts.reduce((acc, prompt) => ({ ...acc, [prompt]: "" }), {})
   );
 
-  // Determine whether all form fields are filled with at least 3 characters
-  const isComplete = Object.values(formData).every(val => val.trim().length >= 3);
+  const [touched, setTouched] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+
+  // Helper to validate input
+  const getError = (val) => val.trim().length < 3 ? "Please enter at least 3 characters!" : "";
+
+  // Form is complete if no prompt has an error
+  const isComplete = prompts.every(p => !getError(formData[p]));
 
   // Handle input changes
-  const handleChange = (evt) => {
-    const { name, value } = evt.target;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData(data => ({ ...data, [name]: value }));
+    setTouched(t => ({ ...t, [name]: true }));
   };
 
   // On form submission, validate and call onSubmit
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSubmitted(true);
     if (isComplete) onSubmit(formData);
-    else alert("Please fill out all fields with at least 3 characters.");
   };
 
   return (
     <form onSubmit={handleSubmit}>
       {/* Render an input for each prompt */}
-      {prompts.map(prompt => (
-        <div key={prompt}>
-          <label htmlFor={prompt}>{prompt}: </label>
-          <input
-            id={prompt}
-            name={prompt}
-            value={formData[prompt]}
-            onChange={handleChange}
-            required
-            minLength={3} />
-        </div>
-      ))}
+      {prompts.map(prompt => {
+        const value = formData[prompt];
+        const error = getError(value);
+        const showError = (touched[prompt] || submitted) && error;
+
+        return (
+          <div key={prompt}>
+            <label htmlFor={prompt}>{prompt}: </label>
+            <input
+              id={prompt}
+              name={prompt}
+              value={formData[prompt]}
+              onChange={handleChange}
+              required
+              minLength={3}
+            />
+            {showError && (
+              <div style={{ color: "red", fontSize: "0.9rem" }}>{error}
+              </div>
+            )}
+          </div>
+        );
+      })}
       <button type="submit" disabled={!isComplete}>Submit</button>
-    </form>
+    </form >
   );
 }
+
 
 export default MadlibForm;

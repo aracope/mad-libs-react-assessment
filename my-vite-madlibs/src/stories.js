@@ -1,9 +1,9 @@
 // There was a madlibs assignment from the Flask section. I have reformatted that project to the best of my abilities, to react.
 export const stories = {
   adventure: {
-    prompts: ["place", "noun", "verb", "adjective", "plural_noun"],
+    prompts: ["place", "noun", "verb", "adjective", "plural noun"],
     template:
-      "Once upon a time in {place}, a {adjective} {noun} loved to {verb} {plural_noun}.",
+      "Once upon a time in {place}, a {adjective} {noun} loved to {verb} {plural noun}.",
   },
   fantasy: {
     prompts: ["creature", "weapon", "magic", "adjective"],
@@ -36,9 +36,9 @@ export const stories = {
       "The {adjective} {cowboy} rode their {horse} into {place}, ready for a showdown with their trusty {weapon}.",
   },
   "fairy tale": {
-    prompts: ["princess", "place", "evil_creature", "action", "magical_item"],
+    prompts: ["princess", "place", "evil creature", "action", "magical item"],
     template:
-      "The {princess} escaped from the {place}, chased by an {evil_creature}, but she used her {magical_item} to {action}.",
+      "The {princess} escaped from the {place}, chased by an {evil creature}, but she used her {magical item} to {action}.",
   },
   sports: {
     prompts: ["team", "sport", "adjective", "action", "opponent"],
